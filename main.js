@@ -9,13 +9,22 @@ function buildGrid(num) {
     let newDiv = document.createElement('div');
     newDiv.setAttribute('id', i);
     newDiv.setAttribute('class', 'cell');
-    newDiv.setAttribute('onmouseover', 'colorCell()')
+    newDiv.setAttribute('onmouseover', 'blackBg()')
     gridParent.appendChild(newDiv);
   }
 }
 
-buildGrid(6);
+buildGrid(50);
 
-function colorCell() {
+function random_rgba() {
+  var o = Math.round, r = Math.random, s = 255;
+  return 'rgba(' + o(r()*s) + ',' + o(r()*s) + ',' + o(r()*s) + ',' + r().toFixed(1) + ')';
+}
+
+function blackBg() {
   document.getElementById(event.target.id).setAttribute('style', 'background-color: black');
+}
+
+function randBg() {
+  document.getElementById(event.target.id).setAttribute('style', 'background-color: ' + random_rgba());
 }
