@@ -1,5 +1,5 @@
 let gridCells;
-let gridParent = document.querySelector('.grid-parent');
+const gridParent = document.querySelector('.grid-parent');
 
 function buildGrid(num) {
   gridCells = num;
@@ -9,8 +9,13 @@ function buildGrid(num) {
     let newDiv = document.createElement('div');
     newDiv.setAttribute('id', i);
     newDiv.setAttribute('class', 'cell');
+    newDiv.setAttribute('onmouseover', 'colorCell()')
     gridParent.appendChild(newDiv);
   }
 }
 
 buildGrid(6);
+
+function colorCell() {
+  document.getElementById(event.target.id).setAttribute('style', 'background-color: black');
+}
